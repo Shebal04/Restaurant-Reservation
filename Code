@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Table Reservation</h2>
+    <input type="text" id="name" placeholder="Enter Name" />
+    <input type="text" id="number" placeholder="Enter Number of Guests..." />
+    <input type="text" id="time" placeholder="Reservation time.." />
+    <button onclick="add()">Confirm Reservation</button>
+    <table id="tableList">
+        <th>Name</th>
+        <th>Number of Guests</th>
+        <th>Time</th>
+    </table>
+    <script>
+        function add(){
+            let input1=document.getElementById("name");
+            let text1=input1.value.trim();
+            let input2=document.getElementById("number");
+            let text2=input2.value.trim();
+            let input3=document.getElementById("time");
+            let text3=input3.value.trim();
+            if (text1=== "") {
+                alert("Please enter your name.");
+                return;
+            }
+            if(text2=== "") {
+                alert("Please enter the number of guests.");
+                return;
+            }
+            if(text3=== "") {
+                alert("Please enter the time");
+                return;
+            }
+            let row= document.createElement("tr");
+            let d1= document.createElement("td");
+            let d2= document.createElement("td");
+            let d3= document.createElement("td");
+            d1.textContent=text1;
+            d2.textContent=text2;
+            d2.style.textAlign="center"
+            d3.textContent=text3;
+            row.append(d1);
+            row.append(d2);
+            row.append(d3);
+            document.getElementById("tableList").append(row);
+            input1.value = "";
+            input2.value = "";
+            input3.value = "";
+        }
+</script>
+</body>
+</html>
